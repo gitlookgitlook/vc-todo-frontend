@@ -1,0 +1,194 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.todo-form-section,
+.todo-list-section {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.todo-form-section {
+  max-height: 300px;
+}
+
+.todo-form-section h2,
+.todo-list-section h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.3rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 8px;
+}
+
+/* 에러 상태 */
+.error-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.error-state h2 {
+  color: #e74c3c;
+  margin-bottom: 15px;
+}
+
+.error-state p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.retry-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #5a6fd8;
+}
+
+/* 로딩 상태 */
+.loading-state {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-state p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+    height: 90vh;
+  }
+
+  .app-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: 100%;
+  }
+
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .todo-form-section,
+  .todo-list-section {
+    padding: 15px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .todo-form-section {
+    max-height: none;
+    min-height: 200px;
+  }
+}
+
+/* 매우 작은 화면 대응 */
+@media (max-width: 360px) {
+  .app {
+    padding: 10px;
+  }
+
+  .todo-form-section,
+  .todo-list-section {
+    padding: 12px;
+    height: auto;
+  }
+
+  .todo-form-section {
+    min-height: 180px;
+  }
+
+  .todo-list-section {
+    min-height: 150px;
+  }
+}
